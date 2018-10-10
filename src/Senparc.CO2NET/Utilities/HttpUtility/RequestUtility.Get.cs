@@ -111,6 +111,8 @@ namespace Senparc.CO2NET.HttpUtility
                 handler.ClientCertificates.Add(cer);
             }
 
+            handler.ServerCertificateCustomValidationCallback = new Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>(CheckValidationResult);
+
             HttpClient httpClient = new HttpClient(handler);
             HttpClientHeader(httpClient, refererUrl, useAjax, timeOut);
 

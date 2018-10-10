@@ -218,7 +218,7 @@ namespace Senparc.CO2NET.HttpUtility
                 CookieContainer = cookieContainer,
             };
 
-            if (checkValidationResult)
+            if (!checkValidationResult)
             {
                 handler.ServerCertificateCustomValidationCallback = new Func<HttpRequestMessage, X509Certificate2, X509Chain, SslPolicyErrors, bool>(CheckValidationResult);
             }
